@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.bairock.iot</groupId>
-	<artifactId>intelDev</artifactId>
+	<artifactId>hamalib</artifactId>
 	<version>1.0.1</version>
 	<packaging>jar</packaging>
-	<name>intelDev</name>
+	<name>hamalib</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
