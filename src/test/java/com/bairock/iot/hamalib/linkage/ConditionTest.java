@@ -1,0 +1,39 @@
+package com.bairock.iot.hamalib.linkage;
+
+import com.bairock.iot.hamalib.device.CompareSymbol;
+import com.bairock.iot.hamalib.device.MainCodeHelper;
+import com.bairock.iot.hamalib.device.devcollect.Pressure;
+import com.bairock.iot.hamalib.device.devswitch.DevSwitch;
+import com.bairock.iot.hamalib.device.devswitch.DevSwitchTwoRoad;
+
+import junit.framework.TestCase;
+
+public class ConditionTest extends TestCase {
+
+	LinkageCondition c = new LinkageCondition();
+	LinkageCondition c2 = new LinkageCondition();
+	protected void setUp() throws Exception {
+		super.setUp();
+		DevSwitch ds = new DevSwitchTwoRoad(MainCodeHelper.KG_2LU_2TAI, "0001");
+		ds.handle("88");
+		c.setDevice(ds.getListDev().get(0));
+		c.setCompareSymbol(CompareSymbol.EQUAL);
+		c.setCompareValue(0);
+		
+		Pressure p = new Pressure();
+		p.getCollectProperty().setCrestValue(100f);
+		p.getCollectProperty().setLeastValue(0f);
+		p.getCollectProperty().setCrestReferValue(100f);
+		p.getCollectProperty().setLeastReferValue(0f);
+		p.handle("p30");
+		c2.setDevice(p);
+		c2.setCompareSymbol(CompareSymbol.GREAT);
+		c2.setCompareValue(20);
+	}
+
+	public void testGetResult() {
+		assertEquals(1, (int)c.getResult());
+		assertEquals(1, (int)c2.getResult());
+	}
+
+}
