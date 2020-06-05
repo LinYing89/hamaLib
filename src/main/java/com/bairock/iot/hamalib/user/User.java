@@ -242,9 +242,9 @@ public class User {
 //        }
 //        return null;
 //    }
-	public DevGroup findDevGroupById(String devGroupId){
+	public DevGroup findDevGroupById(Long devGroupId){
         for(DevGroup group : listDevGroup){
-            if(group.getId() == devGroupId){
+            if(group.getId().equals(devGroupId)){
                 return group;
             }
         }

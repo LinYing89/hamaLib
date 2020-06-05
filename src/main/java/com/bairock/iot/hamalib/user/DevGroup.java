@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 public class DevGroup {
 
-	private String id;
+	private Long id;
 
 	private String groupName;
 	private String password;
@@ -71,11 +71,11 @@ public class DevGroup {
 		this.petName = petName;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

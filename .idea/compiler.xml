@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="hamaLib" target="1.8" />
+      <module name="hamaLib" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
